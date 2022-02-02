@@ -13,7 +13,6 @@ from pypums import ACS
 from dython.nominal import associations
 import numpy as np
 
-
 np.random.seed(7)
 
 constraint_list = ['age', 'gender', 'edu_attain',

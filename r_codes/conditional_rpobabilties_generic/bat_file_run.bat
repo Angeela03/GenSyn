@@ -1,1 +1,0 @@
-"C:\Program Files\R\R-3.6.3\bin\R.exe" CMD BATCH C:\Users\achar\OneDrive\Documents\Project_opiod\project_final_code_synthetic\r_codes\conditional_rpobabilties_generic\conditional_all_counties.R

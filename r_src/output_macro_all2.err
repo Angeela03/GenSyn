@@ -1,0 +1,49 @@
+[1] Inf
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 338447 18.1     658782 35.2   658782 35.2
+Vcells 579856  4.5    8388608 64.0  1803629 13.8
+[1] Inf
+[1]  OR
+40 Levels:  AL  AZ  CA  CO  CT  DC  DE  FL  GA  IA  ID  IL  IN  KY  LA ...  WV
+[1] FALSE
+[1] FALSE
+[1]  PA
+40 Levels:  AL  AZ  CA  CO  CT  DC  DE  FL  GA  IA  ID  IL  IN  KY  LA ...  WV
+[1] FALSE
+[1] FALSE
+[1]  RI
+40 Levels:  AL  AZ  CA  CO  CT  DC  DE  FL  GA  IA  ID  IL  IN  KY  LA ...  WV
+[1] FALSE
+[1] FALSE
+[1]  SC
+40 Levels:  AL  AZ  CA  CO  CT  DC  DE  FL  GA  IA  ID  IL  IN  KY  LA ...  WV
+[1] FALSE
+[1] FALSE
+[1]  TN
+40 Levels:  AL  AZ  CA  CO  CT  DC  DE  FL  GA  IA  ID  IL  IN  KY  LA ...  WV
+[1] FALSE
+[1] FALSE
+[1]  TX
+40 Levels:  AL  AZ  CA  CO  CT  DC  DE  FL  GA  IA  ID  IL  IN  KY  LA ...  WV
+[1] FALSE
+[1] TRUE
+[1]  UT
+40 Levels:  AL  AZ  CA  CO  CT  DC  DE  FL  GA  IA  ID  IL  IN  KY  LA ...  WV
+[1] FALSE
+[1] FALSE
+[1]  VA
+40 Levels:  AL  AZ  CA  CO  CT  DC  DE  FL  GA  IA  ID  IL  IN  KY  LA ...  WV
+[1] FALSE
+[1] FALSE
+[1]  WA
+40 Levels:  AL  AZ  CA  CO  CT  DC  DE  FL  GA  IA  ID  IL  IN  KY  LA ...  WV
+[1] FALSE
+[1] FALSE
+[1]  WI
+40 Levels:  AL  AZ  CA  CO  CT  DC  DE  FL  GA  IA  ID  IL  IN  KY  LA ...  WV
+[1] FALSE
+[1] FALSE
+[1]  WV
+40 Levels:  AL  AZ  CA  CO  CT  DC  DE  FL  GA  IA  ID  IL  IN  KY  LA ...  WV
+[1] FALSE
+[1] FALSE

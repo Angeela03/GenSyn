@@ -7,8 +7,6 @@ import matplotlib.pyplot as plt
 from scipy.optimize import minimize
 import sys
 import copy
-# from dython.nominal import associations
-# from sklearn.preprocessing import OneHotEncoder
 from get_puma import get_pums
 from csv import DictWriter
 from pypums import ACS
@@ -17,18 +15,17 @@ import numpy as np
 
 
 np.random.seed(7)
-
 constraint_list = ['age', 'gender', 'edu_attain',
                    'marital_status', 'pov_status', 'emp_status', 'drug_overdose',  'Insurance', 'Veteran']
 req_columns = ["age", "gender", "marital_status", "pov_status", "emp_status",
                                              "Insurance", "edu_attain"]
 
-# data_path = "C:\\Users\\achar\\OneDrive\\Documents\\Project_opiod\\project_final_code_synthetic\\data"
-data_path = "/scratch/aachary/conditional_rpobabilties_generic/data"
+# # data_path = "C:\\Users\\achar\\OneDrive\\Documents\\Project_opiod\\project_final_code_synthetic\\data"
+# data_path = "/scratch/aachary/conditional_rpobabilties_generic/data"
+data_path = " "
 read_top_50 = pd.read_csv(os.path.join(data_path, "top_50_od.csv"))
 county_pums = pd.read_csv(os.path.join(data_path, "puma_county.csv"))
 
-# print(list(read_top_50["County"].values))
 
 def weight_intermediate(theta, data, total_fc, cost):
     theta_f_repeat = np.tile(theta, (len(data), 1))
