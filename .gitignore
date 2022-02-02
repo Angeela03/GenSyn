@@ -113,6 +113,7 @@ celerybeat.pid
 *.json
 *.rds
 *.pdf
+*.filepart
 
 # Environments
 .env
