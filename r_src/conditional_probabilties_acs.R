@@ -17,7 +17,7 @@ yr_estimate = 5
 
 # Set the required data_path and directory
 setwd(".")
-data_path <- file.path(".","data_acs")
+data_dir <- file.path(".","data")
 
 source("pull_acs.R")
 

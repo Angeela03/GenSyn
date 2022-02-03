@@ -23,7 +23,7 @@ req_columns = ['age', 'gender', 'edu_attain',
                'marital_status', 'pov_status', 'emp_status', 'geog_mobility', 'nativity']
 
 # Read the necessary data
-data_path = os.path.join(".", "data_acs")
+data_path = os.path.join(".", "data")
 read_top_50 = pd.read_csv(os.path.join(data_path, "top_50_acs.csv"))
 county_pums = pd.read_csv(os.path.join(data_path, "puma_county.csv"))
 

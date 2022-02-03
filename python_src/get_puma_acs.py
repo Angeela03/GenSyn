@@ -8,7 +8,7 @@ import os
 # https://www.census.gov/topics/income-poverty/poverty/guidance/poverty-measures.html
 # ACS Documentation - https://www2.census.gov/programs-surveys/acs/tech_docs/subject_definitions/
 # 2018_ACSSubjectDefinitions.pdf
-data_path = os.path.join(".", "data_acs")
+data_path = os.path.join(".", "data")
 cols_req = ['SERIALNO', 'DIVISION', 'SPORDER', 'PUMA', 'REGION', 'ST', 'AGEP', 'SEX', 'RAC1P', 'MAR', 'ESR', 'SCHL',
             'POVPIP', 'HICOV', 'NATIVITY', 'MIG']
 

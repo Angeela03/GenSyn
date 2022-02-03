@@ -6,7 +6,7 @@ library(mvtnorm)
 library(fitdistrplus)
 library(dplyr)
 setwd(".")
-data_dir <- file.path(".","data_acs")
+data_dir <- file.path(".","data")
 
 
 # Get the macro data for multiple geographic locations and its normalized version
