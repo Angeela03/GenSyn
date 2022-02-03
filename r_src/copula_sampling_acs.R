@@ -1,3 +1,5 @@
+# Runs the Gaussian Copula sampling algorithm for the ACS dataset and returns the joint probability distribution p2
+
 library(renv)
 renv::init()
 library(mvtnorm)
@@ -11,13 +13,13 @@ data_dir <- file.path(".","data_acs")
 d_req <- read.csv(file.path(data_dir, "All_counties_macro_norm_acs.csv"))
 marginal_data <- read.csv(file.path(data_dir, "All_counties_macro_acs.csv"))
 
-# Fix formattings
+# Fix formatting
 names(d_req) <- sub("^X", "", names(d_req))
 names(marginal_data) <- sub("^X", "", names(marginal_data))
 
 top_50 = read.csv(file.path(data_dir, "top_50_acs.csv"))
 
-# Function for matching marginals (Algotirhm 3)
+# Function for matching marginals (Algorithm 3)
 match_marginal = function(output, marginals, varnames){
   matched = matrix(0, nrow = nrow(output), ncol = ncol(output))
   colnames(matched) = varnames
@@ -78,8 +80,9 @@ for(j in 5:10) {
   row <- top_50[j,]
   print(row)
   county_fips <- trimws(as.character(row["County.Code"][[1]][[1]])) # trimws removes leading and trailing zeros
+  
+  # Get the marginal constraints for a specific county
   marginal_ <- marginal_data[marginal_data$FIPS ==county_fips,]
-  print(marginal_)
   marginal_constraints <- marginal_[,"Male"] + marginal_[,"Female"]
 
   # Implement Algorithm 2 - Gaussian Copula Sampling
@@ -108,7 +111,8 @@ for(j in 5:10) {
 
     print('Data generated for iteration')
     print(k)
-    # match_marginal = function(output, marginals, varnames){
+    
+    # Get the corresponsing data for each variable
     colnames(data) <- colnames(d)
     age_data <- data[,age_grp]
     gender_data <- data[,gender_grp]
@@ -139,6 +143,7 @@ for(j in 5:10) {
     geog_marginals = match_marginal(geog_data, geog_marginal, colnames(geog_data))
     nat_marginals = match_marginal(nat_data, nat_marginal, colnames(nat_data))
     
+    # Combine results from all variables together
     final_df <- data.frame (age  = c(age_marginals),
                             gender = c(gender_marginals),
                             marital_status = c(mar_marginals),

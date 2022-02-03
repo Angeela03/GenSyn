@@ -1,3 +1,6 @@
+# This code runs the conditional probabilities method for the ACS dataset and returns the joint probability distribution p1
+# . This is built on top of SynthACS 
+
 library(renv)
 renv::init()
 library(data.table)
@@ -83,7 +86,7 @@ for(i in 1:nrow(sample_50)) {
   synthetic_final <- marginalize_attr(data_synthetic, varlist = c("ind_income", "race"), marginalize_out = TRUE)
   prior_data <- data.frame(synthetic_final[[1]][[2]])
   
-  # Change some of the attribute categories to make it in sync with the micro data
+  # Change some of the attribute categories to make it in sync with the sample data
   prior_data$nativity <- as.character(prior_data$nativity)
   prior_data[prior_data["nativity"] == "born_other_state", "nativity"] <- "native"
   prior_data[prior_data["nativity"] == "born_out_us","nativity"] <- "foreigner"

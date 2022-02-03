@@ -1,3 +1,5 @@
+# Runs the Gaussian Copula sampling algorithm for the Combined dataset and returns the joint probability distribution p2
+
 library(mvtnorm)
 library(fitdistrplus)
 library(dplyr)
@@ -19,7 +21,7 @@ read_veteran_data = read.csv(file.path(data_dir, "Veteran_by_gender_all_counties
 
 top_50 <- read.csv(file.path(data_path, "top_50_od.csv"))
 
-# Function for matching marginals (Algotirhm 3)
+# Function for matching marginals (Algorithm 3)
 match_marginal = function(output, marginals, varnames){
   matched = matrix(0, nrow = nrow(output), ncol = ncol(output))
   colnames(matched) = varnames
@@ -80,11 +82,13 @@ d <- d %>% select(2:ncol(d))
 for(j in 1:50) {
   row <- top_50[j,]
   county_fips <- trimws(as.character(row["County.Code"][[1]][[1]])) # trimws removes leading and trailing zeros
+  
+  # Get the marginal constraints for a specific county
   marginal_ <- marginal_data[marginal_data$FIPS ==county_fips,]
   marginal_constraints <- marginal_[,"Male"] + marginal_[,"Female"]
   marginal_total = marginal_constraints[1,"Male"]
 
-  # Implment Algorithm 2 - Gaussian Copula Sampling
+  # Implement Algorithm 2 - Gaussian Copula Sampling
   n<- marginal_total
   m = ncol(d)
   
@@ -108,6 +112,7 @@ for(j in 1:50) {
       }
     }
     
+    # Get the corresponsing data for each variable
     colnames(data) <- colnames(d)
     age_data <- data[,age_grp]
     gender_data <- data[,gender_grp]
@@ -141,6 +146,7 @@ for(j in 1:50) {
     is_marginals = match_marginal(is_data, is_marginal, colnames(is_data))
     vt_marginals = match_marginal(vt_data, vt_marginal, colnames(vt_data))
     
+    # Combine results from all variables together
     final_df <- data.frame (age  = c(age_marginals),
                       gender = c(gender_marginals),
                       marital_status = c(mar_marginals),
@@ -173,29 +179,3 @@ for(j in 1:50) {
   write_name <- paste0("prior_copula_",county_fips,".csv", sep="")
   write.csv(df_final, file.path(data_dir, write_name))
 }
-# Function that accepts matrix for coefficients and data and returns a correlation matrix
-# calculate_cramer <- function(m, df) {
-#   for (r in seq(nrow(m))){
-#     for (c in seq(ncol(m))){
-#       m[[r, c]] <- assocstats(table(df[[r]], df[[c]]))$cramer
-#     }
-#   }
-#   return(m)
-# }
-
-# corr_find <- function(df){
-#   # Initialize empty matrix to store coefficients
-#   empty_m <- matrix(ncol = length(df),
-#                     nrow = length(df),
-#                     dimnames = list(names(df), 
-#                                     names(df)))
-#   cor_matrix <- calculate_cramer(empty_m ,df)
-#   cor(cor_matrix)
-#   
-#   
-# }
-
-# corr_find(final_df)
-# corr_find(df_all)
-
-

@@ -105,8 +105,6 @@ celerybeat.pid
 
 
 #File
-*.csv
-*.xlsx
 *.txt
 *.err
 *.png
@@ -159,7 +157,4 @@ dmypy.json
 __pycache__
 venv
 
-# data
-data
-data_acs
 .Rproj.user

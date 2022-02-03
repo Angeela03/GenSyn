@@ -1,0 +1,51 @@
+"","State","County","County.Code","State_name","Net"
+"1"," IL","Cook County",17031,"Illinois                                                              ",993
+"2"," AZ","Maricopa County",4013,"Arizona                                                               ",755
+"3"," PA","Philadelphia County",42101,"Pennsylvania                                                          ",728
+"4"," MI","Wayne County",26163,"Michigan                                                              ",673
+"5"," MD","Baltimore city",24510,"Maryland                                                              ",534
+"6"," CA","Los Angeles County",6037,"California                                                            ",503
+"7"," OH","Franklin County",39049,"Ohio                                                                  ",422
+"8"," OH","Cuyahoga County",39035,"Ohio                                                                  ",386
+"9"," PA","Allegheny County",42003,"Pennsylvania                                                          ",376
+"10"," MD","Baltimore County",24005,"Maryland                                                              ",353
+"11"," NY","Suffolk County",36103,"New York                                                              ",327
+"12"," FL","Palm Beach County",12099,"Florida                                                               ",317
+"13"," OH","Hamilton County",39061,"Ohio                                                                  ",316
+"14"," MO","St. Louis County",29189,"Missouri                                                              ",310
+"15"," NY","Bronx County",36005,"New York                                                              ",307
+"16"," MA","Middlesex County",25017,"Massachusetts                                                         ",304
+"17"," WI","Milwaukee County",55079,"Wisconsin                                                             ",276
+"18"," TX","Harris County",48201,"Texas                                                                 ",275
+"19"," MA","Essex County",25009,"Massachusetts                                                         ",267
+"20"," CA","San Diego County",6073,"California                                                            ",259
+"21"," MA","Worcester County",25027,"Massachusetts                                                         ",259
+"22"," IN","Marion County",18097,"Indiana                                                               ",256
+"23"," MI","Macomb County",26099,"Michigan                                                              ",256
+"24"," NV","Clark County",32003,"Nevada                                                                ",256
+"25"," CT","Hartford County",9003,"Connecticut                                                           ",254
+"26"," NJ","Essex County",34013,"New Jersey                                                            ",241
+"27"," OH","Montgomery County",39113,"Ohio                                                                  ",241
+"28"," WA","King County",53033,"Washington                                                            ",240
+"29"," NJ","Camden County",34007,"New Jersey                                                            ",239
+"30"," CA","Orange County",6059,"California                                                            ",238
+"31"," FL","Duval County",12031,"Florida                                                               ",237
+"32"," CT","New Haven County",9009,"Connecticut                                                           ",224
+"33"," KY","Jefferson County",21111,"Kentucky                                                              ",217
+"34"," NJ","Ocean County",34029,"New Jersey                                                            ",216
+"35"," FL","Hillsborough County",12057,"Florida                                                               ",210
+"36"," MO","St. Louis city",29510,"Missouri                                                              ",209
+"37"," FL","Broward County",12011,"Florida                                                               ",207
+"38"," MA","Bristol County",25005,"Massachusetts                                                         ",206
+"39"," TN","Knox County",47093,"Tennessee                                                             ",206
+"40"," MD","Anne Arundel County",24003,"Maryland                                                              ",200
+"41"," NY","Kings County",36047,"New York                                                              ",200
+"42"," MA","Suffolk County",25025,"Massachusetts                                                         ",199
+"43"," DE","New Castle County",10003,"Delaware                                                              ",198
+"44"," FL","Orange County",12095,"Florida                                                               ",198
+"45"," NJ","Monmouth County",34025,"New Jersey                                                            ",197
+"46"," TN","Davidson County",47037,"Tennessee                                                             ",194
+"47"," FL","Lee County",12071,"Florida                                                               ",192
+"48"," NY","New York County",36061,"New York                                                              ",192
+"49"," MA","Hampden County",25013,"Massachusetts                                                         ",189
+"50"," FL","Brevard County",12009,"Florida                                                               ",183

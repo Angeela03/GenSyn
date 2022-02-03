@@ -1,5 +1,6 @@
+# The following code retrieves sample data belonging to a county from PUMS and converts it into the required format
+
 from pypums import ACS
-# Preprocess data
 import pandas as pd
 import os
 
@@ -7,12 +8,12 @@ import os
 # https://www.census.gov/topics/income-poverty/poverty/guidance/poverty-measures.html
 # ACS Documentation - https://www2.census.gov/programs-surveys/acs/tech_docs/subject_definitions/
 # 2018_ACSSubjectDefinitions.pdf
-data_path = "C:\\Users\\achar\\OneDrive\\Documents\\Project_opiod\\project_final_code_synthetic\\data"
+data_path = os.path.join(".", "data")
 cols_req = ['SERIALNO', 'DIVISION', 'SPORDER', 'PUMA', 'REGION', 'ST', 'AGEP', 'SEX', 'RAC1P', 'MAR', 'ESR', 'SCHL',
             'POVPIP', 'HICOV']
 
 
-# function to change continous attributes to categorical
+# function to change numerical attributes to categorical
 def to_cat(x):
     # age
     if x["AGEP"] < 15:
@@ -101,39 +102,38 @@ def to_cat(x):
         x["edu_attain"] = "lt_hs"
 
     # Pov status
-    if x["POVPIP"] <100:
+    if x["POVPIP"] < 100:
         x["pov_status"] = "below_pov_level"
     else:
         x["pov_status"] = "at_above_pov_level"
     return x
 
 
+# Get PUMS data
 def get_pums(state_name, county_fips, get_county_pums):
     print(state_name)
     acs_data = ACS(year=2018, state=state_name, survey='5-Year')
-
     acs = acs_data
     df_micro = acs.as_dataframe()
 
-    #df_micro.to_csv("tets_puma.csv", index=False)
+    # Get the corresponding PUMA codes belonging to a county
     get_county_pums["County_code"] = get_county_pums["County_code"].astype(str)
     puma_code = get_county_pums[get_county_pums["County_code"] == county_fips]["PUMA"].values
+
+    # Get data only for those PUMA codes
     data_req = df_micro[df_micro['PUMA'].isin(puma_code)]
     data_req = data_req[cols_req]
     data_final = data_req[['SERIALNO', 'AGEP', 'SEX', 'MAR', 'SCHL', 'ESR', 'HICOV', 'POVPIP']]
     dropped_df = data_final.dropna().reset_index(drop=True)
-    # Change continous attributes to categorical
+
+    # Change attributes to categorical
     combine_attr = dropped_df.iloc[:, 1:]
-    # to_categorical = pd.read_csv(os.path.join(data_path, "to_categorical_baltimore_"+ name + ".csv"))
     combine_attr["POVPIP"] = combine_attr["POVPIP"].astype(int)
     to_categorical = combine_attr.apply(lambda x: to_cat(x), axis=1)
-    # to_categorical.to_csv(os.path.join(data_path,"to_categorical_baltimore_"+name+".csv"), index=False)
     to_categorical = to_categorical.iloc[:, 7:]
-    # to_categorical.to_csv(os.path.join(data_path, "actual_acs_pums_" + str(county_fips) + ".csv"), index=False)
     return to_categorical
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     county_pums = pd.read_csv(os.path.join(data_path, "puma_county.csv"))
-    get_pums("Maryland", "24510",county_pums)
-
+    get_pums("Maryland", "24510", county_pums)

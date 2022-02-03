@@ -1,3 +1,6 @@
+# This code runs the conditional probabilities method for the Combined dataset and returns the joint probability distribution p1.
+# This is built on top of SynthACS
+
 library(data.table)
 library(synthACS)
 library(dplyr)
@@ -28,7 +31,7 @@ names(read_od_data) <- c("County.Code","County", "State",  "Year",     "level", 
 overdose_level <- read_od_data[read_od_data$level =="Overdose",]
 no_od_level <- read_od_data[read_od_data$level =="No_overdose",]
 
-# Get 50 counties in US having high OD count
+# Select 50 counties in US having the highest OD count
 Summary <- overdose_level %>%
   group_by( State,County, County.Code,State_name) %>%
   summarise(Net = sum(pct))
@@ -48,6 +51,7 @@ save_constraints <- function(synthetic_data, od_pct, ins_pct, vet_pct, county_co
   emp_status <- all_geog_constraint_employment(synthetic_data, method = "synthetic")
   pov_status <- all_geog_constraint_poverty(synthetic_data, method = "synthetic")
 
+  # Get the marginals of the other variables separately
   od <- od_pct[od_pct$level == "Overdose",]
   no_od = od_pct[od_pct$level == "No_overdose",]
 
@@ -138,7 +142,7 @@ for(i in 1:nrow(top_50)) {
   
   gc()
   
-  # MArginalize other attributes that are not required
+  # Marginalize other attributes that are not required
   synthetic_final <- marginalize_attr(merge_, varlist = c("geog_mobility", "nativity", "ind_income", "race"), marginalize_out = TRUE)
   
   # write down the results obtained from the conditional probabilities and also the constraints
