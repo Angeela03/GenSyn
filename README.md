@@ -6,10 +6,10 @@ The overall framework of SynCop is depicted here:
 As shown, the framework consists of three main components: conditional probabilties, copula sampling, and maximum entropy optimization.
 This repository contains an implementation of SynCop and is based on both R and Python. R is used for implementing Conditional Probabilities and Copula Sampling. And, python is used for maximum entropy optimization using the L-BFGS-B algorithm. The required dependencies and the corresponding source codes of these methods are detailed separately:
 
-# Conditional Probabilties
+# Conditional Probabilities
 The conditional probabilities method is implemented on top of the SynthACS framework. Therefore, the details on the functions implemented in the code can be found in [1]. We implement the conditional probabilties method for two different datasets (i) One that only consists of ACS variables - provided in r_src/conditional_probabilities_acs.R (ii) One that combines ACS variables with variables from other sources - provided in r_src/conditional_probabilities_combined.R. 
 
-## Depedendencies:
+## Dependencies:
 * data.table
 * synthACS
 * dplyr
