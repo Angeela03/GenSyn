@@ -1,7 +1,6 @@
 # Runs the Gaussian Copula sampling algorithm for the ACS dataset and returns the joint probability distribution p2
 
-library(renv)
-renv::init()
+
 library(mvtnorm)
 library(fitdistrplus)
 library(dplyr)

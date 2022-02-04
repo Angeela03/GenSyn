@@ -3,15 +3,13 @@
 library(mvtnorm)
 library(fitdistrplus)
 library(dplyr)
-library(readr)
-library(renv)
-renv::init()
+
 
 setwd(".")
 data_dir <- file.path(".","data")
 
 # Get the macro data for multiple geographic locations and its normalized version
-d_req <- read_csv(file.path(data_dir, "All_counties_macro_norm.csv"))
+d_req <- read.csv(file.path(data_dir, "All_counties_macro_norm.csv"))
 marginal_data <- read_csv(file.path(data_dir, "All_counties_macro.csv"))
 
 # Get OD, Insurance, and Veteran data

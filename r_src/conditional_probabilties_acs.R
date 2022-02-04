@@ -1,8 +1,6 @@
 # This code runs the conditional probabilities method for the ACS dataset and returns the joint probability distribution p1
 # . This is built on top of SynthACS 
 
-library(renv)
-renv::init()
 library(data.table)
 library(synthACS)
 library(dplyr)
