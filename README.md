@@ -1,10 +1,9 @@
-# SynCop: Using Gaussian Copula and Conditional Probabilities for Generating Synthetic Microdata from Macro Data Sources
+# GenSyn: A Multi-stage Framework for Generating Synthetic Microdata using Macro Data Sources
+The overall framework of GenSyn is depicted here:
+![image](https://user-images.githubusercontent.com/30096335/153280404-6b2a9f9f-6bbd-4542-824d-d571315b1e0d.png)
 
-The overall framework of SynCop is depicted here:
-![image](https://user-images.githubusercontent.com/30096335/152444600-4f26aa8d-33e2-46ac-9974-f7c1dd53078f.png)
-
-As shown, the framework consists of three main components: conditional probabilties, copula sampling, and maximum entropy optimization.
-This repository contains an implementation of SynCop and is based on both R and Python. R is used for implementing Conditional Probabilities and Copula Sampling. And, python is used for maximum entropy optimization using the L-BFGS-B algorithm. The required dependencies and the corresponding source codes of these methods are detailed separately:
+As shown, the framework consists of three main components: conditional probabilties modeling, gaussian copula sampling, and maximum entropy optimization.
+This repository contains an implementation of GenSyn and is based on both R and Python. R is used for implementing the conditional probabilities modeling algorithm and the gaussian copula sampling algorithm. And, python is used for maximum entropy optimization using the L-BFGS-B algorithm. The required dependencies and the corresponding source codes of these methods are detailed separately:
 
 # Conditional Probabilities
 The conditional probabilities method is implemented on top of the SynthACS framework. Therefore, the details on the functions implemented in the code can be found in [1]. We implement the conditional probabilties method for two different datasets (i) One that only consists of ACS variables - provided in r_src/conditional_probabilities_acs.R (ii) One that combines ACS variables with variables from other sources - provided in r_src/conditional_probabilities_combined.R. 
@@ -45,7 +44,7 @@ The maximum entropy optimization is implemented in python. Here, python_src/maxe
 # Dataset
 The demographic data is obtained from the American Community Survey (ACS) using the SythACS framework. Data on opioid overdose is obtained from CDC Wonder [3], data on insurance is obtained from Small Area Health Insurance Estimates (SAHIE) [4], and data on veteran population is obtained from Opioid Environment Policy Scan (OEPS) [5]. 
 
-All the necessary data are adjusted according to the required formats and are made available inside the "data" directory
+All the necessary input data are adjusted according to the required formats and are made available inside the "data" directory
 
 # REFERENCES
 [1] Whitworth A (Forthcoming). “synthACS: Spatial MicroSimulation Modeling with Synthetic American Community Survey Data.” Journal of Statistical Software.
