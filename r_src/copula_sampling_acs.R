@@ -75,7 +75,7 @@ names(d) <- trimws(names(d))
 d <- d[,2:ncol(d)]
 
 # Copula sampling for the 50 counties
-for(j in 5:10) {
+for(j in 1:50) {
   row <- top_50[j,]
   print(row)
   county_fips <- trimws(as.character(row["County.Code"][[1]][[1]])) # trimws removes leading and trailing zeros
