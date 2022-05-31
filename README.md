@@ -1,12 +1,12 @@
 # GenSyn: A Multi-stage Framework for Generating Synthetic Microdata using Macro Data Sources
 The overall framework of GenSyn is depicted here:
-![image](https://user-images.githubusercontent.com/30096335/153280404-6b2a9f9f-6bbd-4542-824d-d571315b1e0d.png)
+![method_v6_300](https://user-images.githubusercontent.com/30096335/171075206-4ec64eb1-128b-41ac-b968-02542f975a0e.png)
 
 As shown, the framework consists of three main components: conditional probabilties modeling, gaussian copula sampling, and maximum entropy optimization.
 This repository contains an implementation of GenSyn and is based on both R and Python. R is used for implementing the conditional probabilities modeling algorithm and the gaussian copula sampling algorithm. And, python is used for maximum entropy optimization using the L-BFGS-B algorithm. The required dependencies and the corresponding source codes of these methods are detailed separately:
 
 # Conditional Probabilities
-The conditional probabilities method is implemented on top of the SynthACS framework. Therefore, the details on the functions implemented in the code can be found in [1]. We implement the conditional probabilties method for two different datasets (i) One that only consists of ACS variables - provided in r_src/conditional_probabilities_acs.R (ii) One that combines ACS variables with variables from other sources - provided in r_src/conditional_probabilities_combined.R. 
+The conditional probabilities method is implemented on top of the SynthACS framework with necessary modifications. Therefore, the details on the functions implemented in the code can be found in [1]. We implement the conditional probabilties method for two different datasets (i) One that only consists of ACS variables - provided in r_src/conditional_probabilities_acs.R (ii) One that combines ACS variables with variables from other sources - provided in r_src/conditional_probabilities_combined.R. 
 
 ## Dependencies:
 * data.table
