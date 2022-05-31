@@ -1,6 +1,6 @@
 # GenSyn: A Multi-stage Framework for Generating Synthetic Microdata using Macro Data Sources
 The overall framework of GenSyn is depicted here:
-![method_v6_300](https://user-images.githubusercontent.com/30096335/171075206-4ec64eb1-128b-41ac-b968-02542f975a0e.png)
+![method_v6_modified](https://user-images.githubusercontent.com/30096335/171075396-8e55e734-93bb-43d2-8ef4-176277992c06.png)
 
 As shown, the framework consists of three main components: conditional probabilties modeling, gaussian copula sampling, and maximum entropy optimization.
 This repository contains an implementation of GenSyn and is based on both R and Python. R is used for implementing the conditional probabilities modeling algorithm and the gaussian copula sampling algorithm. And, python is used for maximum entropy optimization using the L-BFGS-B algorithm. The required dependencies and the corresponding source codes of these methods are detailed separately:
